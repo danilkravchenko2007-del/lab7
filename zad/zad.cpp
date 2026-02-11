@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <math.h>
-#define _CRT_SECURE_NO_WARNINGS_
+
 using namespace std;
 
 void FuncCalculate(double x)
@@ -55,14 +55,14 @@ void Credit(double sum, int period, double percent)
 	double monthly_percent = percent / 12. / 100.;
 	double payment = sum / period;
 	printf("=============================\n");
-	printf("\tДолг\tПроцент\tПлатеж\n");
+	printf("Долг\tПроцент\tПлатеж\n");
 	printf("=============================\n");
 
 	for (int i = 1; i <= period; i++)
 	{
 		double pr = sum * monthly_percent;
 		double pay = payment;
-		printf("%d %.2lf %.2lf %.2lf\n", i, sum, pr, pay);
+		printf("%d %.2lf %.2lf %.2lf\n", i, sum, pr, pay + pr);
 		sum -= pay;
 	}
 
