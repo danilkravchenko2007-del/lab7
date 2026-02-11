@@ -7,7 +7,7 @@ void FuncCalculate(double x)
 {
 	if (x <= 0 || x > 4)
 	{
-		cout << "X должен быть в интервале (0; 4]";
+		cout << "X должен быть в интервале (0; 4]\n";
 		return;
 	}
 	double step = (double)(4 - x) / 10.;
@@ -27,7 +27,7 @@ void FibonacciNumbersSum(int MAX)
 {
 	setlocale(LC_ALL, "Russian");
 	int n = 1;
-	unsigned long long a = 1; // F(1)
+	unsigned long long a = 0; // F(1)
 	unsigned long long b = 1; // F(2)
 	unsigned long long s = a; // Сумма
 
@@ -54,19 +54,22 @@ void Credit(double sum, int period, double percent)
 {
 	double monthly_percent = percent / 12. / 100.;
 	double payment = sum / period;
-	printf("=============================\n");
-	printf("Долг\tПроцент\tПлатеж\n");
-	printf("=============================\n");
+	double summa = 0;
+	printf("==============================================\n");
+	printf("%-4s %-10s %-10s %-10s\n", "Мес.", "Долг", "Процент", "Платеж");
+	printf("==============================================\n");
 
 	for (int i = 1; i <= period; i++)
 	{
 		double pr = sum * monthly_percent;
 		double pay = payment;
-		printf("%d %.2lf %.2lf %.2lf\n", i, sum, pr, pay + pr);
+		printf("%-4d %-10.2lf %-10.2lf %-10.2lf\n", i, sum, pr, pay + pr);
 		sum -= pay;
+		summa += pr;
 	}
 
-	printf("=============================\n");
+	printf("==============================================\n");
+	printf("Всего процентов: %.2lf\n", summa);
 }
 
 int main()
@@ -74,12 +77,14 @@ int main()
 	setlocale(LC_ALL, "Russian");
 	
 	// Задание 1
+	cout << "===== Задание 1 =====\n";
 	double x;
 	cout << "Введите начальную точку интервала возможных значений аргумента: ";
 	cin >> x;
 	FuncCalculate(x);
 
 	// Задание 2
+	cout << "===== Задание 2 =====\n";
 	unsigned long long MAX;
 	cout << "Введите число MAX: ";
 	cin >> MAX;
@@ -87,6 +92,7 @@ int main()
 	FibonacciNumbersSum(MAX);
 
 	// Задание 3
+	cout << "===== Задание 3 =====\n";
 	double sum, percent;
 	int period;
 	//Вводим сумму
