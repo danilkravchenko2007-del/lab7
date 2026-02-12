@@ -18,10 +18,10 @@ void FuncCalculate(double x)
 		double func = sin(s) / s;
 		cout << func;
 		if (i < 9) cout << ", ";
-		else cout << "\n";
+		else cout << ".";
 		s += step;
-		cout << endl;
 	}
+	cout << endl;
 }
 void FibonacciNumbersSum(int MAX)
 {
@@ -96,17 +96,14 @@ int main()
 	double sum, percent;
 	int period;
 	//Вводим сумму
-	printf("Сумма (руб.) -> ");
+	printf("Сумма (руб.) ->");
 	scanf_s("%lf", &sum);
-	printf("\n");
 	// Вводим срок
 	printf("Срок (мес.) -> ");
 	scanf_s("%d", &period);
-	printf("\n");
 	//Вводим процентную ставку
 	printf("Процентная ставка (годовых) -> ");
 	scanf_s("%lf", &percent);
-	printf("\n");
 
 	Credit(sum, period, percent);
 	return 0;
